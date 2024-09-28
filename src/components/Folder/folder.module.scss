@@ -1,0 +1,29 @@
+.folderContainer {
+    margin-left: 1rem;
+    padding: .25rem;
+    padding-right: 0;
+}
+
+.folderHead {
+    cursor: pointer;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &_actions {
+        margin: 0 .25rem;
+    }
+
+    &:hover {
+        background-color: whitesmoke
+    }
+}
+
+.openExplorer {
+    display: block;
+}
+
+.closeExplorer {
+     display: none;
+}

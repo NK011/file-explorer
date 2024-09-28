@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { useContext } from "react";
+import "./App.css";
+import Folder from "./components/Folder";
+import { ExplorerContext, ExplorerProvider } from "./contexts/ExplorerContext";
+
+const FileExplorerApp = () => {
+    const { explorer } = useContext(ExplorerContext);
+    return (
+        <div className="App">
+            {explorer.map((item, index) => (
+                <Folder key={item.id} folderData={item} />
+            ))}
+        </div>
+    );
+};
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <ExplorerProvider>
+            <FileExplorerApp />
+        </ExplorerProvider>
+    );
 }
 
 export default App;
